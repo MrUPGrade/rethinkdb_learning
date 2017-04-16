@@ -1,0 +1,10 @@
+version: '3'
+services:
+  rdb:
+    image: rethinkdb:2.3
+    ports:
+     - "9901:28015"
+     - "9902:29015"
+     - "9903:8080"
+    volumes:
+     - ./rdb_s1:/data

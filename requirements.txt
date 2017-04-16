@@ -1,0 +1,3 @@
+rethinkdb
+docker-compose
+pytest

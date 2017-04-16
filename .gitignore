@@ -1,0 +1,7 @@
+rethinkdb_data/
+
+.idea/
+docker/*/rdb_s*/
+.cache/
+__pycache__
+*.pyc

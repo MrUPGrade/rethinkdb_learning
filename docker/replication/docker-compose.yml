@@ -1,0 +1,21 @@
+version: '3'
+services:
+  rdb_s1:
+    command: rethinkdb --bind all --server-tag s1
+    image: rethinkdb:2.3
+    ports:
+     - "9901:28015"
+     - "9902:29015"
+     - "9903:8080"
+    volumes:
+     - ./rdb_s1:/data
+
+  rdb_s2:
+    image: rethinkdb:2.3
+    command: rethinkdb --bind all --server-tag s2 --join rdb_s1
+    ports:
+     - "9904:28015"
+     - "9905:29015"
+     - "9906:8080"
+    volumes:
+     - ./rdb_s2:/data
