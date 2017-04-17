@@ -12,7 +12,6 @@ class DB:
     def drop_database(self):
         r.db_drop(self._name).run(self._conn)
 
-
     def ensure_created(self):
         res = r.db_list().run(self._conn)
 
@@ -50,6 +49,14 @@ class RDBTable:
             self.drop_table()
 
 
-class Files:
+class FSNodes:
+    TABLE_NAME = 'fs_nodes'
+
     def __init__(self, connection):
         self._conn = connection
+
+    def add_node(self, node_data):
+        r.table(self.TABLE_NAME).insert(node_data).run(self._conn)
+
+    def report_python(self):
+        return r.table(self.TABLE_NAME).filter(r.row['mime'] == 'text/x-python').count().run(self._conn)

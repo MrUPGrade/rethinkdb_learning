@@ -1,0 +1,6 @@
+r.db("linux").table("fs_nodes").filter(r.row("mime").eq("text/x-python")).count()
+
+
+r.db("linux").table("fs_nodes").filter(
+  r.row("mime").eq("text/x-python")
+).sum('size')

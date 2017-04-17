@@ -1,3 +1,4 @@
 rethinkdb
 docker-compose
 pytest
+python-magic
